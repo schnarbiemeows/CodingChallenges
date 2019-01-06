@@ -1,0 +1,51 @@
+public class Solution {
+
+	public int projectionArea(int[][] grid) {
+        int numitems = grid.length;
+        int itemlength = grid[0].length;
+        int zcount = 0;
+        int[] maxOfEachItem = new int[numitems];
+        int[] maxOfEachDimension = new int[itemlength];
+        int totalArea = 0;
+        for(int i=0;i<numitems;i++) {
+        	for(int j=0;j<itemlength;j++) {
+        		if(grid[i][j]>0) zcount++;
+        		maxOfEachItem[i] = Math.max(maxOfEachItem[i], grid[i][j]);
+        		maxOfEachDimension[j] = Math.max(maxOfEachDimension[j], grid[i][j]);
+        	}
+        }
+        for(int k=0;k<numitems;k++) {
+        	totalArea+=maxOfEachItem[k];
+        }
+        for(int l=0;l<itemlength;l++) {
+        	totalArea+=maxOfEachDimension[l];
+        }
+        totalArea+=zcount;
+        return totalArea;
+    }
+
+better solution:
+	
+	public int projectionArea(int[][] grid) {
+        int numitems = grid.length;
+        int itemlength = grid[0].length;
+        int[] maxOfEachDimension = new int[itemlength];
+        int totalArea = 0;
+        for(int i=0;i<numitems;i++) {
+        	int maxOfEachItem = 0;
+        	for(int j=0;j<itemlength;j++) {
+        		if(grid[i][j]>0) totalArea++;
+        		maxOfEachItem+= Math.max(grid[i][j]-maxOfEachItem,0);
+        		maxOfEachDimension[j] = Math.max(maxOfEachDimension[j], grid[i][j]);
+        	}
+        	totalArea+=maxOfEachItem;
+        }
+        for(int l=0;l<itemlength;l++) {
+        	totalArea+=maxOfEachDimension[l];
+        }
+        return totalArea;
+    }
+
+
+
+}

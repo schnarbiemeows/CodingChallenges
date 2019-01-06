@@ -1,0 +1,19 @@
+class Solution {
+    public List<Integer> postorder(Node root) {
+        Deque<Node> temp = new ArrayDeque<Node>();
+        List<Integer> answer = new ArrayList<Integer>();
+        if(root==null) return answer;
+        temp.add(root);
+        while(temp.length>0) {
+        	Node item = temp.removeFirst();
+        	if(item.children.size()>0 {
+        		for(Node child : item.children) {
+        			temp.addToFront(child);
+        		}
+        	}
+        	answer.add(item.val);
+        }
+        ArrayUtils.reverse(answer);
+        return answer;
+    }
+}
