@@ -1,0 +1,13 @@
+	public int maxDepth(Node root) {
+        if(root==null) return 0;
+        return depth(root);
+    }
+    
+    private int depth(Node currentNode) {
+    	if(currentNode.children==null||currentNode.children.isEmpty()) return 1;
+    	int depth = 0;
+    	for(Node child : children) {
+    		depth = Math.max(depth(child),depth);
+    	}
+    	return 1+depth;
+    }

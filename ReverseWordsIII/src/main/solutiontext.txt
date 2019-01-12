@@ -1,0 +1,20 @@
+	public String reverseWords(String s) {
+        Stack<String> words = new Stack<String>();
+        String[] items = s.split(" ");
+        for(int i=0;i<items.length;i++) {
+        	words.push(items[i]);
+        }
+        String st = "";
+        while(!words.isEmpty()) {
+        	st +=words.pop()+" ";
+        } 
+        st = st.substring(0,st.length-1);
+        char[] characters = st.toCharArray();
+        for(int j = 0; j<characters.length/2;j++) {
+        	char temp = characters[j];
+        	characters[j]=characters[characters.length-j];
+        	characters[characters.length-j]=temp;
+        }
+        st = characters.toString();
+        return st;
+    }

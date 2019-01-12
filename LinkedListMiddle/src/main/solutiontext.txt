@@ -1,0 +1,16 @@
+	public ListNode middleNode(ListNode head) {
+        if(head.next==null) return head;
+        ListNode current = head;
+        int count = 0;
+        while(current!=null) {
+        	count++;
+        	current = current.next;
+        }
+        int halfwaypoint = count/2+count%2;
+        current = head;
+        while(halfwaypoint>1) {
+        	current=current.next;
+        	halfwaypoint--;
+        }
+        return current;
+    }

@@ -1,0 +1,26 @@
+	public List<String> subdomainVisits(String[] cpdomains) {
+        Map<String,Integer> domains = new HashMap<String,Integer>();
+        for(int i=0;i<cpdomains.length;i++) {
+        	Integer count = new Integer(cpdomains[i].split(" ")[0]);
+        	String domain = cpdomains[i].split(" ")[1];
+        	if(null!=domains.get(domain)) {
+        		int current = domains.get(domain);
+        		current+=count.intValue();
+        		domains.put(domain,current);
+        	} else {
+        		domains.put(domain,count);
+        	}
+        	while(domain.indexOf(".")!=-1) {
+        		domain = domain.substring(domain.indexOf(".")+1);
+        		if(null!=domains.get(domain)) {
+	        		int current = domains.get(domain);
+	        		current+=count.intValue();
+	        		domains.put(domain,current);
+	        	} else {
+	        		domains.put(domain,count);
+	        	}
+        	}
+        }
+        List<String> answer = new ArrayList<String>();
+        
+    }
