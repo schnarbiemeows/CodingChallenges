@@ -1,0 +1,7 @@
+	public String[] findWords(String[] words) {
+        char[] topline = { 'q','Q','w','W','e','E','r','R','t','T','y','Y','u','U','i','I','o','O','p','P'};
+        char[] bottomline = { 'a','A','s','S','d','D','f','F','g','G','h','H','j','J','k','K','l','L'};
+        for(int i=0;i<words.length;i++) {
+        
+        }
+    }
