@@ -1,0 +1,29 @@
+I have to iterate through the top row and then the leftmost column(going down)
+for()
+	while ... x<row length AND y<column length
+		if([y][x]!=[y+offset}[x+offset] false and break
+	
+	
+	
+	
+	public boolean isToeplitzMatrix(int[][] matrix) {
+        int width = matrix[0].length;
+        int height = matrix.length;
+        for(int x=0;x<width;x++) {
+        	int xoffset=1,yoffset=1;
+        	while(x+xoffset<width&&yoffset<height) {
+        		if(matrix[0][x]!=matrix[x+xoffset][yoffset]) return false;
+        		xoffset++;
+        		yoffset++;
+        	}
+        }
+        for(int y=1;y<height;y++) {
+        	int xoffset=1,yoffset=1;
+        	while(x+xoffset<width&&yoffset<height) {
+        		if(matrix[0][x]!=matrix[x+xoffset][yoffset]) return false;
+        		xoffset++;
+        		yoffset++;
+        	}
+        }
+        return true;
+    }

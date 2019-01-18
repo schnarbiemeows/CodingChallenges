@@ -1,0 +1,27 @@
+we have to create a new tree, on the old tree, do an in-order traversal, and every time we
+find the smallest number, add it to the new tree
+
+	public TreeNode increasingBST(TreeNode root) {
+        TreeNode newTree = null;
+        findLowestItem(root,newTree);     
+    }
+    
+    public findLowestItem(TreeNode current, TreeNode new) {
+    	if(current.left!=null) {
+    		findLowestItem(current.left, new);
+    	}
+    	addNode(current,new);
+    	if(current.right!=null) {
+    		findLowestItem(current.right, new);
+    	}
+    }
+    
+    public addNode(TreeNode current, TreeNopde new) {
+    	if(current==null) current=new;
+    	else {
+    		if(current.right!=null) addNode(current.right,new);
+    		else {
+    			current.right=new;
+    		}
+    	}
+    }
