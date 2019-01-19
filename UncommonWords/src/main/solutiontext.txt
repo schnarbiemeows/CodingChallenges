@@ -1,0 +1,31 @@
+create a hashMap of <String,Integer>
+go through string 1 split into string array
+for each item if its not in the map, add it with int=1;
+if it is, increment the value by 1
+go through second string, split into array
+for each item do the same as above
+iterate through map, for each key, if value = 1, add to a list
+convert list into String array
+
+	public String[] uncommonFromSentences(String A, String B) {
+        HashMap<String,Integer> wordmap = new HashMap<String,Integer>(400);
+        String[] words1 = A.split(" ");
+        String[] words2 = B.split(" ");
+        for(int i=0;i<words1.length;i++) {
+        	if(null==wordmap.get(words1[i]) wordmap.put(words1[i],new Integer(1));
+        	else wordmap.put(words1[i],wordmap.get(words1[i])+1);
+        }
+        for(i=0;i<words2.length;i++) {
+        	if(null==wordmap.get(words2[i]) wordmap.put(words2[i],new Integer(1));
+        	else wordmap.put(words2[i],wordmap.get(words2[i])+1);
+        }
+        List<String> words = new ArrayList<String>();
+        Iterator wordmapiter = wordmap.keySet().iterator;
+        while(wordmapiter.hasNext()) {
+        	String key = wordmapiter.next();
+        	int count = wordmap.get(key);
+        	if(count==1) words.add(key);
+        }
+        String[] answer = new String[words.size()];
+        return words.toArray(answer);
+    }

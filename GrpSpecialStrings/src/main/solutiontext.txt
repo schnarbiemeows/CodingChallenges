@@ -1,0 +1,71 @@
+	public int numSpecialEquivGroups(String[] A) {
+        if(A.length==1) return 1
+        int[] used = new int[A.length];
+        int counter = 0;
+        for(int i=0;i<A.length;i++) {
+        	if(used[i]=0) {
+        		used[i]=1;
+        		counter++;
+        		char[] word1 = A[i].toCharArray();
+        		for(int j=i+1;j<A.length;j++) {
+        			if(used[j]==0) {
+	        			char word2 = A[j].toCharArray();
+	        			boolean same = false;
+	        			// evens
+	        			for(int e=0;e<word1.length;e+=2) {
+	        				for(int e2=e+2;e2<word1.length;e2+=2) {
+	        					swap(e,e2,word2);
+	        					if(same(word1,word2)) {
+	        						used[j]=1;
+	        						same=true;
+	        						break;
+	        					}
+	        				}
+	        			}
+	        			// odds, only if we haven't already paired
+	        			if(!same) {
+	        				for(int e=1;e<word1.length;e+=2) {
+		        				for(int e2=e+2;e2<word1.length;e2+=2) {
+		        					swap(e,e2,word2);
+		        					if(same(word1,word2)) {
+		        						used[j]=1;
+		        						same=true;
+		        						break;
+		        					}
+		        				}
+		        			}
+	        			}
+	        		}
+        		}
+        	}
+        }
+    }
+    
+    public void swap(int index1, int index2, int[] input) {
+    	char temp=input[index1];
+    	input[index1]=input[index2];
+    	input[index2]=temp;
+    }
+    public boolean same(char[] word1, char[] word2) {
+    	for(int i=0;i<word1.length;i++) {
+    		if(word1[i]!=word2[i]) return false;
+    	}
+    	return true;
+    }
+    
+
+create a boolean[] for tracking if a word has been used or not
+for every string start a group , compare it with every 
+other string that comes after
+for each comparison, do all the moves until you find one match
+start by just seeing if they are equal
+the # of moves = # of even moves + # of odd moves
+# of even moves = for i=0 to i < length; i+=2) {
+	for j = i+2 ; j<length; j+=2) {
+		
+	}
+# of odd moves = for i=1; i< length; i+=2) {
+	for j = i+2; j<length; j+=2) {
+		
+	}
+if you find an equality, increment a

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /*
- *	not a single mistake, first submission, no errors, beat 60.0% of submissions 
+ *	973 - not a single mistake, first submission, no errors, beat 60.0% of submissions 
  */
 public class Solution {
 
