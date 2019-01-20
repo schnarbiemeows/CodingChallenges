@@ -1,0 +1,34 @@
+1. re-establish root
+if root < left then while root.right < L root = root.right
+else if root > R then while root.left > R root = root.left
+2.) check the left children of the root
+c = root
+while c.left!=null && c.left>=L c = c.left
+if c.left!=null && c.left.right != null && c.left.right >= L then c.left = c.left.right
+3.) check the right children of the root
+c = root
+while c.right != null && c.right <= R c = c.right
+if c.right != null && c.right.left != null && c.right.left <= R the c.right = c.right.left
+	
+	public TreeNode trimBST(TreeNode root, int L, int R) {
+	// re-establish root, f needed
+        if(root.val < L) {
+        	while(root.right!=null&&root.right.val<L) root = root.right;
+        }
+        else if(root.val > R) {
+        	while(root.left!=null&&root.left.val>R) root = root.left;
+        }
+        if(root!=null) {
+        	TreeNode current = root;
+        // check the left children
+        	while(current.left!=null&&current.left.val>=L) current = current.left;
+        	// check to see if I need to replace the left child with its right child
+        	if(current.left!=null&&current.left.right!=null&&current.left.right.val>=L) 
+        		current.left = current.left.right;
+        // check the right children
+        	while(current.right!=null&&current.right.val<=R) current = current.right;
+        	// check to see if i need to replace the right chil with its left child
+        	if(current.right!=null&&current.right.left!=null&&current.right.left.val<=R)
+        		current.right = current.right.left;
+        }
+    }
