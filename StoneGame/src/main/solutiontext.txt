@@ -1,0 +1,29 @@
+I think that this is a demrgan's theorem problem; prove true by disproving false
+the key word is optimally, so, just prove that there is any one way ALex can  win
+if Alex ALWAYS chooses the biggest pile of stones, and LEE ALWAYS choses the smallest pile of stones
+then if the final talies are still LEE > ALEX, then there is no way ALEX can win, otherwise, return true
+
+	public boolean stoneGame(int[] piles) {
+        int alextotal=0,leetotal=0;
+        int startindex = 0;endindex=piles.length-1;
+        while(startindex<endindex-1) {
+        	if(whichpick(piles,startindex,endindex==1) {
+        		alextotal+=piles[endindex--];
+        	} else alextotal+=piles[startindex++];
+        	if(whichpick(piles,startindex,endindex==0) {
+        		leetotal+=piles[endindex--];
+        	} else leetotal+=piles[startindex++];
+        }
+        alextotal+=Math.max(piles[startindex],piles[endindex]);
+        leetotal+=Math.min(piles[startindex],piles[endindex]);
+        if(alextotal>leetotal) return true;
+        return false;
+    }
+    
+    public int whichpick(int[] pile, int start, int end) {
+    	// 0 = start
+    	// 1 = end
+    	if(pile[start]==pile[end]) return figureOutIncrement(pile,start+1,end-1);
+    	if(pile[start]>pile[end]) return 0;
+    	return 1;
+    }

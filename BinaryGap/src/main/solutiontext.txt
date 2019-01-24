@@ -1,0 +1,18 @@
+O(n) solution
+convert to chararray, numbers 48 and 49 are 0 and 1
+do from left until you find first 1
+do from right until you find first 1
+go from first 1+1 to last one
+if you find 0 add 1 to current count
+if you find 1 take max of current and max --> mmax, then zero out current
+	public int binaryGap(int N) {
+		if(N==0) return 0;
+        int currentCount = 0;
+        int maxCount = 0;
+        for(int i=0;i<32;i++) {
+        	// shift right and add to counter
+        	currentCount = (N>>1==0) ? currentCount++ : 0;
+        	maxCount = Math.max(currentCount,maxCount);
+        }
+        return currentCount;
+    }

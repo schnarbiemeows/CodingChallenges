@@ -1,0 +1,21 @@
+int[] = candies
+in order to do this, we would want to know how many different numbers there are
+if N = total # of numbers, and X = total different #s,
+if there are N/2+1 or more different numbers, then the 
+girl can get N/2 different #s, otherwise, she would get X different #s
+so all we have to do is sort, and everytime the current # is different than the one before it, then
+X = X+1
+
+	public int distributeCandies(int[] candies) {
+        Arrays.sort(candies);
+        int lastNum = candies[0];
+        int numDiffNums = 1;
+        for(int i=1;i<candies.length;i++) {
+        	if(candies[i]!=lastNum) {
+        		numDiffNums++;
+        		lastNum=candies[i];
+        	}
+        }
+        if(numDiffNums>candies.length/2) return candies.length/2;
+        return numDiffNums;
+    }
