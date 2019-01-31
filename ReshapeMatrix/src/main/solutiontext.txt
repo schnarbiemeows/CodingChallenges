@@ -1,0 +1,18 @@
+brute force:
+old matrix = R1*C1 = size = R2*C2
+int[] oldArray = new int[R1*C1
+for(
+
+	public int[][] matrixReshape(int[][] nums, int r, int c) {
+		int[][] answer = new int[r][c]; 
+		int r1 = nums.length;
+		int size = r*c;
+        int[] temp = new int[size];
+        for(int i=0;i<size;i++) {
+        	temp[i] = nums[i/r1][i%r1];
+        }
+        for(int i=0;i<size;i++) {
+        	answer[i/r][i%r] = temp[i];
+        }
+        retun answer;
+    }

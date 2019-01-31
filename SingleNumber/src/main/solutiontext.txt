@@ -1,0 +1,4 @@
+so there will always be an odd number of integers
+O(n) and O(1) memory? hmm
+i can do it either way but not sure how to do it with both
+O(nlogn) sort then 

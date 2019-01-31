@@ -1,0 +1,52 @@
+max number of 1's = 19
+go from left to right
+count = Integer.countBits(x);
+int primes = 0;
+switch(count) {
+	case(1) : primes++;
+			  break;
+	case(2) : primes++;
+			  break;
+	case(3) : primes++;
+			  break;
+	case(5) : primes++;
+			  break;
+	case(7) : primes++;
+			  break;
+	case(11) : primes++;
+			  break;
+	case(13) : primes++;
+			  break;
+	case(17) : primes++;
+			  break;
+	case(19) : primes++;
+			  break;
+}
+	public int countPrimeSetBits(int L, int R) {
+		int primes = 0;
+        for(int i=L;i<=R;i++) {
+        	int count = Integer.countBits(i);
+        	switch(count) {
+				case(1) : primes++;
+						  break;
+				case(2) : primes++;
+						  break;
+				case(3) : primes++;
+						  break;
+				case(5) : primes++;
+						  break;
+				case(7) : primes++;
+						  break;
+				case(11) : primes++;
+						  break;
+				case(13) : primes++;
+						  break;
+				case(17) : primes++;
+						  break;
+				case(19) : primes++;
+						  break;
+				default:
+			}
+        }
+        return primes;
+    }

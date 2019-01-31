@@ -1,0 +1,10 @@
+8,5,4,4,2,6,6,6 is the perfect test
+ok, the largest length has to be < sum of the other two lengths
+so you would sort
+then start with the largest # and check the next two numbers
+	- if largest is > then their sum, toss it and keep going
+	- then we just need the highest 3 numbers
+	unless k< 3
+	int k = A.length-1
+	while(k>1&&A[k]>A[k-1]+A[k-2]) k--;
+	if k==1 return 0; else return A[k]+A[k-1]+A[k-2]

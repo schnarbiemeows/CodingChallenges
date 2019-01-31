@@ -1,0 +1,39 @@
+need 2 queues
+upper que = list of the current levels elements
+lower queue = list of the children of the current level's elements
+need a recursive method
+1. add root to the upper queue
+
+2. while(upper queue is not empty)
+	3. pop an element from the upper queue and add it to a list
+	4. add its children to the lower queue
+5. add the list to the master list
+6. upper queue = lower queue
+7. clear the lower queue
+repeat 2
+
+	public List<List<Integer>> levelOrder(Node root) {
+        Queue<Node> upper = new ArrayList<Node>();
+        Queue<Node> lower = new ArrayList<Node>();
+        upper.addToFront(root);
+        List<List<Integer>> answer = new ArrayList<List<Integer>>();
+        method(answer,upper,lower);
+        return answer;
+    }
+    
+    pulic void method(List<List<Integer>> answer,Queue<Node> upper, Queue<Node> lower) {
+    	List<Integer> temp = new ArrayList<Integer>();
+    	while(!upper.isEmpty() {
+    		Node item = upper.remove();
+    		temp.add(item.val);
+    		for(Node node : children) {
+    			lower.addToFront(node);
+    		}
+    	}
+    	if(!temp.isEmpty()) {
+    		answer.add(temp);
+    		upper = lower;
+    		lower = new ArrayList<Node>();
+    		method(answer,upper,lower);
+    	}
+    }

@@ -1,0 +1,60 @@
+easy to solve; hard to make efficient
+array of string --> array of strings
+string strings first, # strings second
+have to sort string strings, dont order num strings
+every line has at least 1 space
+Make an ArrayList for the nums
+go through list:
+	convert each string to a character array
+	for each item:
+		find the character after the first space
+		if its a num --> add string to ArrayList
+make a String][] of size [original array size - num arraylist][2] size
+go through list:
+	convert each string to a character array
+	for each item:
+		find the character after the first space
+		if its NOT a num --> add second part, first part to array[][]
+sort string array
+make final array of original size
+iterate through string array, reassemble and put each item into final array
+put each item from num array into final array
+
+	public String[] reorderLogFiles(String[] logs) {
+        List<String> numlist = new ArrayList<>();
+        for(int i=0;i<logs.length;i++) {
+        	char[] words = logs[i].tochrArray();
+        	for(int j=0;j<words.length;j++) {
+        		if(words[j]==32) {
+        			if(words[j+1]>47&&words[j+1]<58) {
+        				numlist.add(logs[i]);
+        				break;
+        			}
+        		}
+        	}
+        }
+        String[] stringstring = new String[logs.length-numlist.length];
+        int counter = 0;
+        for(int i=0;i<logs.length;i++) {
+        	char[] words = logs[i].tochrArray();
+        	for(int j=0;j<words.length;j++) {
+        		if(words[j]==32) {
+        			if(words[j+1]>57) {
+        				stringstring[counter]=logs.substring(j+1)+" "+logs.substring(0,j);
+        				counter++;
+        				break;
+        			}
+        		}
+        	}
+        }
+        String[] final = new String[logs.length];
+        counter = 0;
+        for(int i=0;i<stringstring.length;i++) {
+        	int index = stringstring.lastIndexOf(" ");
+        	final[counter++] = stringstring[i].substring(index+1)+" "+stringstring[i].substring(0,index);
+        }
+        for(String item : numlist) {
+        	final[counter++] = item;
+        }
+        return final;
+    }
