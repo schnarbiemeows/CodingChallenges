@@ -1,0 +1,21 @@
+if the two strings were equal, then there would be no subsequence of either string that would
+not be in the other
+so, we gotta work the NOT of this one
+1.) if one string is longer, the longer string is the answer
+2.) else they two strings are the same length
+wait a minute, they want the LONGEST uncommon subsequence
+ha, the two strings are either the same length or they aren't
+- if they are the same length and equal, then the answer is -1
+- if they are the same length and not equal, the answer is the length
+- if they are not the same length, the answer is the length of the longest one
+
+the answer will always be one of these
+
+	public int findLUSlength(String a, String b) {
+        if(a==null&&b==null) return -1;
+        if(a==null) return b.length();
+        if(b==null) return a.length();
+        if(a.equals(b)) return -1;
+        if(a.length()==b.length()) return b.length();
+        return a.length()>b.length() ? a.length() : b.length();
+    }

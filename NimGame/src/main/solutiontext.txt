@@ -1,0 +1,7 @@
+the only way you cant win the game is if there are only 4 stones left when it is your turn
+since you get to go first
+so if n==4 return false;
+else return true
+ok, so not exactly true, the answer involves assuming that the opponent is smart and will
+always make the best move, so
+if(n%4==0) return false else return true

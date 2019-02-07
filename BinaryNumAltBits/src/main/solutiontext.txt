@@ -1,0 +1,16 @@
+the intitial bit will be num%2
+keep shifting the bits to the right and comparing the current num%2 with the last one
+if they are the same, return false
+else set the initial bit
+
+	public boolean hasAlternatingBits(int n) {
+		if(n==0||n==1) return false;
+        int init = n%2;
+        n=n/2;
+        while(n>0) {
+        	if(n%2==init) return false;
+        	init=n%2;
+        	n=n/2;
+        }
+        return true;
+    }

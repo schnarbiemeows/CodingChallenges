@@ -1,0 +1,25 @@
+brute force:
+String[] words = 
+int i = array size
+for(int j=0;j<arraysize -1;j++:
+	char[] frst
+	char[] next
+	int size = <shorter of the two words>
+	for(int k=0, k<size;k++) {
+		if(order.indexOf(first[k]>order.indexOf(next[k]) return false;
+	}
+	
+	public boolean isAlienSorted(String[] words, String order) {
+        for(int i=0;i<words.size-1;i++) {
+        	char[] first = words[i].toCharArray();
+        	char[] next = words[i+1].toCharArray();
+        	int smallersize = first.length<=next.length ? first.length : next.length;
+        	boolean same = true;
+        	for(int k=0;k<smallersize;k++) {
+				if(order.indexOf(first[k]>order.indexOf(next[k]) return false;
+				if(first[k]!=next[k]) same = false;
+       		}
+       		if(smallersize==next.length&&same) return false;
+        }
+        return true;
+    }

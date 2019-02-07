@@ -1,0 +1,31 @@
+for every character:
+if it is a letter
+	return the letter plus all possible permutations of the letters that come after it
+	and the letter transformed plus all possible permutations of the letters that come after it
+	
+	
+	
+	if its the last letter:
+		add word to list
+	else 
+	
+	
+	
+	void method do(char[] letters, List<string> words, char[] word, int index) {
+		if(index==letters.length) words.add(String.valueOf(word));
+		else {
+			if(letters[index] is not a letter) {
+				do(letters,words,word,index+1);
+			} else if(letters[index] is lowercase) {
+				char[] word2 = word;
+				word2[index]+=32;
+				do(letters,words,word,index+1);
+				do(letters,words,word2,index+1);
+			} else {
+				char[] word2 = word;
+				word2[index]-=32;
+				do(letters,words,word,index+1);
+				do(letters,words,word2,index+1);
+			}
+		}
+	}

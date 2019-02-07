@@ -1,0 +1,36 @@
+the simple answer:
+1. sort both arrays
+2. iterate through both and get the total of each, get diff
+3. total 1 - total2 abs value
+4. iterate in 1 from 0, iterate in 2 from length-1 until item j - item i = diff
+5. return those items
+
+	public int[] fairCandySwap(int[] A, int[] B) {
+     	Arrays.sort(A);
+     	Arrays.sort(B);
+     	int atotal = 0;
+     	int btotal = 0;
+     	for(int i =0;i<A.length;i++) {
+     		atotal+=A[i];
+     	}  
+     	for(int j =0;ij<B.length;j++) {
+     		btotal+=B[j];
+     	}
+     	int diff = Math.abs(atotal-btotal);
+     	int start = 0
+     	int end = A.length-1;
+     	if(btotal>atotal) end = B.length-1;
+     	if(btotal>atotal) {
+     		while(start<A.length&&end>0) {
+     			if(B[end]-A[start]==diff return new int[] { A[start],B[end] };
+     			end--;
+     			start++;
+     		}
+     	} else {
+     		while(start<B.length&&end>0) {
+     			if(A[end]-B[start]==diff return new int[] { B[start],A[end] };
+     			end--;
+     			start++;
+     		}
+     	}
+    }
