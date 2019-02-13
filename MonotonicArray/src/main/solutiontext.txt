@@ -1,0 +1,2 @@
+monotonic increasing would be if the array sorted = original array
+monotonic decreasing would be if the array sorted then reversed = original

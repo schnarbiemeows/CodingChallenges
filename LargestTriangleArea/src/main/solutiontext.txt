@@ -1,0 +1,32 @@
+you just have to find the 3 longest lines,no, that's not it
+geeez, ok, brute force method:
+get every 3 combinations of points
+need a method to figure out if the 2 points are on the same line --> remove these
+need a method to get the take the side*cos(theta) to get the height 
+then a method to get the area
+no,no, gotta be the 3 most spread out points, so,
+start at each point, get every pair of other points, get the lengths of all 3, and sum
+crap! I have to get the area anyways, so I might as well just calculate all the areas
+
+	public double largestTriangleArea(int[][] points) {
+        double largestArea = 0;
+        for(int pointA=0;pointA<points.length-2;pointA++) {
+        	largestArea=Math.max(getArea(points[pointA],points[pointA+1],points[pointA+2]),largestArea);
+        }
+        return largestArea;
+    }
+    
+    public double getArea(int[] pointA, int[] pointB, int[] pointC) {
+    	double sideAB = getLength(pointA,pointB); // side C
+    	double sideAC = getLength(pointA,pointC); // side B
+    	double sideBC = getLength(pointB,pointC); // side A
+    	double angleA = Math.acos(sideAC*sideAC+sideAB*sideAB-sideBC*sideBC)/(2*sideAC*sideAB);
+    	if(angleA==0||angleA==180) return 0;
+    	double height = sideAC*Math.sin(angleA);
+    	return height*sideAB;
+    }
+    
+    public double getLength(int[] pointA, int[] pointB) {
+    	return Math.sqrt((pointA[0]-pointB[0])*(pointA[0]-pointB[0])+(pointA[1]-pointB[1])*(pointA[1]-pointB[1]));
+    }
+    

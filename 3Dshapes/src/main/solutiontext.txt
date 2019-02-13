@@ -1,0 +1,49 @@
+I did this one with the 2 d
+
+first thougts: the brute force way was good enough, so no need to O(n) it
+
+so, loop in-a loop
+
+cubes not at top/bottom can have at most 4
+botttom SA = # of coordinates with at least 1 cube
+so only have to compare 5 
+
+public int surfaceArea(int[][] grid) {
+	int length = grid.length;
+	int area = 0;
+	for(int y=0;y<length;y++) {
+		for(int x=0;x<length;x++){
+			if(grid[x][y]>0) {
+				area+=2;
+				switch(x) {
+					case(0) : switch(x+1) {
+								case(length) : area+=grid[x][y];
+											   break;
+								default		 : area+=grid[x][y]-grid[x+1][y];				
+							  }
+							  break;
+					default : area+=grid[x][y]-grid[x-1][y];
+							  switch(x+1) {
+								case(length) : area+=grid[x][y];
+											   break;
+								default		 : area+=grid[x][y]-grid[x+1][y];				
+							  }
+				}
+				switch(y) {
+					case(0) : switch(y+1) {
+								case(length) : area+=grid[x][y];
+											   break;
+								default		 : area+=grid[x][y]-grid[x][y+1];				
+							  }
+							  break;
+					default : area+=grid[x][y]-grid[x][y-1];
+							  switch(y+1) {
+								case(length) : area+=grid[x][y];
+											   break;
+								default:	   area+=grid[x][y]-grid[x][y+1];				
+							  }
+				}
+			}
+		}	
+	}
+}

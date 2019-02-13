@@ -1,0 +1,40 @@
+ok, the tree depth is log(N)
+so recursive method
+
+if level = 0 we are at the leaves
+1.) make leaf with null children at the coordinate x,y, set isLeaf=true
+2.) return the Node
+else
+	1. make new node(null val, level-1, false leaf, rec.child1,rec.child2,rec.child3,rec.child4)
+	2. double val = (child1.val + child2.val+child3.val+child4.val)/4.0
+	3. set (int)val
+	4. if val is 0 or 1.0 then leaf=true, null all children
+	5 return Node
+
+	public Node construct(int[][] grid) {
+	    int level = (int)Math.log(grid.length,2);
+	    Node root = createTree(grid, level, 0, grid.length,0,grid.length);
+    }
+    
+    public Node createTree(int[][] grid, int level, int startY, int endY, int startX, int endX) {
+    	if(level==0) {
+    		Node thisNode = new Node(grid[startY][startX],true,null,null,null,null);
+    		return thisNode;
+    	}
+    	else {
+    		Node thisNode = new Node(100,false,createTree(grid,level-1,startY,endY/2,startX,endX/2),
+    									createTree(grid,level-1,startY,endY/2,endX/2,endX),
+    									createTree(grid,level-1,endY/2,endY,startX,endX/2),
+    									createTree(grid,level-1,endY/2,endY,0,endX/2,endX));
+    		double val = (thisNode._topLeft._val+thisNode._topRight._val+thisNode._bottomLeft._val+thisNode._bottomRight._val)/4.0;
+    		if(val==0.0||val==1.0) {
+    			thisNode._val = (int)val;
+    			thisNode._isLeaf=true;
+    			thisNode._topLeft=null;
+    			thisNode._topRight=null;
+    			thisNode._bottomLeft=null;
+    			thisNode._bottomRight=null;
+    		}
+    		return thisNode;
+    	}
+    }
