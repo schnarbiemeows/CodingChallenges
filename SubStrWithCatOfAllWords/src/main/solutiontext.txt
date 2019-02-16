@@ -1,0 +1,53 @@
+ok, so the brute force method would be to 
+1 - take the array of words and derive every possible combination of wordsequence
+2 - iterate through these wordsequences and checking to see if s "contains" them
+3 - if S contains that sequence, do a while(index !=-1) find all indexes
+4 - combine all the indexes into a list
+
+
+2 words = 2 combo
+3 words = abc,acb,bac,bca,cab,cba = 6
+4 = abcd,acbd,abdc,acdb,adbc,adcb,bacd,badc,bcad,bcda,bdac,bdca,cabd,cadb,cbad,cbda,cdba,cdab,dabc,dacb,dbac,dbca,dcab,dcba = 24
+n!
+
+
+
+
+
+
+	public List<Integer> findSubstring(String s, String[] words) {
+        List<String> wordlist = new arrayList<String>();
+        ArrayList<String> currentwords = Arrays.asList(words);
+        makeWordList(currentwords,wordlist,new StringBuilder());
+        
+    }
+    
+    
+    public void makeWordList(List<String> currentwords, List<String> wordlist, StringBuilder s) {
+    	if(currentwords.isEmpty()) synchronize(wordlist) {
+    		wordlist.add(s.toString());
+    	}
+    	else {
+    		for(String x: currentwords) {
+    			StringBuilder newsb = s.append(x);
+    			List<String> subwords = currentwords.copy();
+    			subwords.remove(x);
+    			makeString(subwords,currentwords,wordlist,newsb,
+    		}
+    	}
+    }
+    
+   
+have a list of wordsnotfoundyet and wordsfound
+start going through the string with iterator i from 0 to s.length-wordlength
+if i-i+wordlength is one of our words then
+{
+	add this word to wordsfound and remove from wordnotfound
+	have a new countr p to go from i+wordlength to s.length
+	check each consecutive block of letters to see if its in wordnotfound
+		- if any block is not in this list, then abort that p iteration
+		- if it is, move it to the wordsfound list
+		- do this until wordnotfound is empty or we reach the end of s
+		- if wordnotfound is empty
+			- add i to our integer list
+			- copy wordsfound to wordnotfound and clear wordsfound
