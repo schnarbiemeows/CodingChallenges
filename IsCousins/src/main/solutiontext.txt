@@ -1,0 +1,35 @@
+I have to find each node and remember its level and its parent
+I have to have both nodes at the same time, so I Have to have a 
+linked list queue of each level's nodes
+plus a list of the parents of those nodes
+so track two numbers initialized to 0 -> xparent and yparent
+so go through the parent queue
+if I find x, set xparent, if i find y set yparent
+after going through the list check xparent, yparent
+if they are both not zero and not equal, set a Boolean() to true;
+
+
+	public boolean isCousins(TreeNode root, int x, int y) {
+        Boolean answer = false;
+        Queue<TreeNode> parents = new LinkedList<TreeNode>();
+        Queue<TreeNode> children = new LinkedList<TreeNode>();
+        parents.push(root);
+        findAnswer(x,y,answer,parents,children);
+        return answer.value();
+    }
+    
+    public void findAnswer(int x, int y, Boolean answer, Queue<TreeNode> parents,Queue<TreeNode> children) {
+    	if(!parents.isEmpty()) {
+    		int xparent=0,yparent = 0;
+    		while(!parents.isEmpty()) {
+    			TreeNode node = parents.pop();
+    			if(node.left==x||node.right==x) xparent = node.val;
+    			if(node.left==y||node.right==y) yparent = node.val;
+    			if(node.left!=null) children.push(node.left);
+    			if(node.right!=null) children.push(node.right);
+    		}
+    		if(xparent!=0&&xparent==yparent) answer.setValue(true);
+    		parents = children;
+    		children = new LinkedList<TreeNode>();
+    	}
+    }
