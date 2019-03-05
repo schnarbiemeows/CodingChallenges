@@ -1,0 +1,12 @@
+hmm,basically, if the number contains a 2,5,6, or 9, AND  no 3,4, or 7s, it counts
+
+	public int rotatedDigits(int N) {
+		int counter = 0;
+        for(int i=1,i<=N;i++) {
+        	String number = String.valueOf(i);
+        	if(((number.contains("2")||number.contains("5")||
+        	(number.contains("6")||number.contains("9"))&&
+        	(!(number.contains("3")||number.contains("4")||number.contains("7"))))
+        		count++;
+        }
+    }

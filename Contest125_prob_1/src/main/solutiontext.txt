@@ -1,0 +1,30 @@
+hmm, i am assuming here that say person 1 could havemore than 1 trust point, so , say [1,2] and [1,3]
+otherwise, there would only be single points that all had the same b component
+so the judge is the only b point that will not be an a point
+so 
+N = # of people, so
+make 2 list, a list of people, and a list of whos trusted
+so the first group should be N-1 big
+the second group should be the one entry that is not in list 1
+
+wait, no a 2 dim array of size N
+so, the sum of the first entries should be =N-1
+and there should be an entry in the second list that equals N-1
+
+
+	public int findJudge(int N, int[][] trust) {
+        int[][] trusts = new int[N][N];
+        for(int i=0;i<trust.length;i++) {
+        	trusts[trust[i][0]-1][0]++;
+        	trusts[trust[i][1]-1][1]++;
+        }
+        int zerocount = 0;
+        for(int j=0;j<trusts.length;j++) {
+        	if(trusts[j][0]>0) zerocount++;
+        }
+        if(zerocount+1!=N) return -1;
+        for(int j=0;j<trusts.length;j++) {
+        	if(trusts[j][1]==N-1) return trusts[j][1];
+        }
+        retun -1;
+    }

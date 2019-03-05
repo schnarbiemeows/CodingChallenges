@@ -1,0 +1,7 @@
+1. find the origin point
+2. make a linked list of linked lists
+3. for every oath you calculate, you need to keep track of points already taken 
+3. iterate through this linked list and find the total distance of 
+
+
+List<Point> exclusions

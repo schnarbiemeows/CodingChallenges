@@ -1,0 +1,22 @@
+hmm, it seems like it just wants a list of all the numbers that are in both arrays
+there is no indication of the limit of the numbers that can be in the array, or
+on the lengths of each array.
+
+whats the best way?
+O(nums1.length+nums2.length) - speed
+can we do inplace?
+- make a TreeSet
+
+
+	public int[] intersection(int[] nums1, int[] nums2) {
+        List<Integer> resultList = new ArrayList<Integer>();
+        Set<Integer> resultset = new TreeSet<Integer>();
+        for(int i=0;i<nums1;i++) {
+        	resultset.add(nums[i]);
+        }
+        for(int j=0;j<nums2.length;j++) {
+        	if(resultset.contains(nums[j]) resultList.add(nums[j]);
+        }
+        //int[] returnarray = new int[resultlist.length()];
+        return resultlist.toArray(resultlist.length());
+    }
