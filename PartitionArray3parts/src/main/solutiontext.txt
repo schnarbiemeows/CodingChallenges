@@ -1,0 +1,14 @@
+ok, so the numbers actually have to be added up in the order in which they appear in the array
+so, no sorting, in place, should be O(n) solution
+1. iterate through the array and add up all the numbers
+- if the sum%3 != 0 then return false
+- total = sum/3
+2. start adding until you hit either total, or the end of the array
+- if end, return false
+3. start adding again until you hit total or the end of the array
+- if end, return false
+- else return true
+	
+	public boolean canThreePartsEqualSum(int[] A) {
+		
+    }

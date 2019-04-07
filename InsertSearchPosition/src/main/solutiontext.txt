@@ -1,0 +1,10 @@
+this one seems easy, the array is sorted
+so O(n) solution 
+just go through the array, keeping track of the current index, until you either find the number
+or the first number greater than it. Then return the index of that number
+
+	public int searchInsert(int[] nums, int target) {
+        int counter = 0;
+        while(nums[counter]<target&&counter<nums.length) counter++;
+        return counter;
+    } 
