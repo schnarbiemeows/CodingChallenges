@@ -1,0 +1,34 @@
+O(n) solution
+I need to keep track of starting index, ending index as I go through the String
+first, convert to a character array
+keep track of a total = 
+	everytime I find a "(", then total ++
+	everytime I find a ")" then total--
+	if total=0 then
+		if ending index-1 > starting index+1, add char[start+1] to char[end-1] to output string
+	
+	public String removeOuterParentheses(String S) {
+		if(S==null||S.length==0) return S;
+        char[] letters = S.toCharArray();
+        String output = "";
+        int start=0, end=0,total=0;
+        for(int i=0;i<S.length;i++) {
+        	if(letters[i]=='(') {
+        		total++;
+        	}
+        	else if(letters[i]==')') {
+        		total--;
+        		if(total==0) {
+	        		if(i-start>1) {
+	        			char[] word = new char[i-start-1];
+	        			for(int j=start+1;j<i;j++) {
+	        				word[j-start-1] = letters[j];
+	        			}
+	        			output+=String.valueOf(word);
+        			}
+        			start=i+1;
+        		} 
+        	}
+        }
+        return output;
+    }
