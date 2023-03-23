@@ -1,6 +1,7 @@
 package main;
 
 import classes.Solution;
+import classes.Solution2;
 
 public class ReverseIntegerMain {
 
@@ -13,8 +14,19 @@ public class ReverseIntegerMain {
 	 * overflows.
 	 */
 	public static void main(String[] args) {
-		int input = 123;
-		Solution sol = new Solution();
-		System.out.println(sol.reverse(input));
+		//  -2147483648 to 2147483647.
+		int input = 1234567899;
+		Solution2 sol = new Solution2();
+		System.out.println(input + " - " + sol.reverse(input));
+		input = -123;
+		System.out.println(input + " - " + sol.reverse(input));
+		input = -1234567899;
+		System.out.println(input + " - " + sol.reverse(input));
+		input = 1234567899;
+		System.out.println(input + " - " + sol.reverse(input));
+		input = 0;
+		System.out.println(input + " - " + sol.reverse(input));
+		input = 9;
+		System.out.println(input + " - " + sol.reverse(input));
 	}
 }

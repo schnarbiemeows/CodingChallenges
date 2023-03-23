@@ -24,9 +24,11 @@ public class Solution2 {
     		Node item = upper.remove();
     		if (item!=null) {
 				temp.add(item.val);
-				for (Node node : item.children) {
-					lower.add(node);
-				} 
+				if(item.children!=null) {
+					for (Node node : item.children) {
+						lower.add(node);
+					}
+				}
 			}
     	}
     	if(!temp.isEmpty()) {

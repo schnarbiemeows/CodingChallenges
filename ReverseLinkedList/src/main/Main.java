@@ -3,6 +3,7 @@ package main;
 import classes.ListNode;
 import classes.Solution;
 import classes.Solution2;
+import classes.Solution3;
 
 public class Main {
 
@@ -10,6 +11,8 @@ public class Main {
 	 * 206
 	 * difficulty - EASY
 	 * Reverse a singly linked list.
+	 * The number of nodes in the list is the range [0, 5000].
+	 * -5000 <= Node.val <= 5000
 	 */
 	public static void main(String[] args) {
 		ListNode first = new ListNode(1);
@@ -27,7 +30,7 @@ public class Main {
 			System.out.println(head.val+", ");
 			head=head.next;
 		}
-		Solution2 sol2 = new Solution2();
+		Solution3 sol2 = new Solution3();
 		head = sol2.reverseList(first);
 		while(head!=null) {
 			System.out.println(head.val+", ");

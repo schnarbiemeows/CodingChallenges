@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /*
  * 888
- * works, but crappy solution, only eat 28.34% speed
+ * works, but crappy solution, only beat 28.34% speed
  * and 1.78% memory
  */
 public class Solution {

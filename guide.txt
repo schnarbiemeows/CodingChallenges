@@ -1,0 +1,134 @@
+what Structures/Algorithms are being displayed in which projects?
+the structures are:
+Arrays
+Graphs
+Trees
+LinkedLists
+ArrayLists
+2-D Arrays
+Multi-D Arrays
+Heaps
+Queues
+Stacks
+Sorts
+Searching Algorithms
+Simple(no data types)
+____________________________________________________________________________________________________________________________________________________
+Arrays:
+MergeSortedArrays
+RemoveElement
+RemDuplFromSortedArray(2 different problems)
+NumAndDuplicate(not right answer on this one)
+MountainArray
+ReplaceElements
+HeightChecker(has a counting sort in it)
+MaxConsecutiveOnes
+ThirdMaxNumber
+FindDisappearedNumbers
+SquaresSortedArray
+FindPivotIndex
+TwoXlargestNum
+PlusOne
+DiagonalTraverse(*** 2-D array traversal perfect example)
+SpiralMatrix(another 2-D array traversal
+PascalsTriangle
+RunSum1Darray
+RmvElemToMakeArrInc
+
+Char Arrays
+    ------------------------
+AddBinary(important info about adding numbers represented as strings in Solution 2)
+ImplementStrStr(about string in strings)
+ArrayPartition1(*** uses counting sort, use these instead of Arrays.sort(array) if possible)
+TwoSumII
+MinSzSubArrSum(MyOnlySolution shows inchworm explanation of finding subtotals of an array in O(n) time)
+RotateArray(TODO - study "InPlaceSolution" on how to shift array items)
+PascalsTriangleII
+ReverseWordsInaString(TODO - come up with a better algorithm that just 30% speed)
+LngstSubStrWORepeatChars
+BuildArrayFromPermutation
+ConcatArray(uses System.arraycopy() method)
+RemoveVowelsFromStr
+ArmstongNumber
+DecRunLgthEncList(has an Arrays.fill() example)
+BuddyStrings
+
+______________________
+1. Graphs:
+______________________
+2. Trees:
+______________________
+    1. Binary Trees
+FindNodeInClone
+
+    2. N-ary trees(more than 2 children)
+    Get the values for each level of a tree structure : N-aryOrderTraversal, Solution2
+
+
+
+3. LinkedLists
+______________________
+DesignLinkedList(Single LL :
+        MyBestLL answer has a LL without making any Node object, and has the System.arraycopy method in it)
+MergeTwoSortedLLs(BestSolution shows how to recursively step through LLs)
+LinkedListCycle
+LinkedListCycleII
+IntsctOf2LinkedLists(2-pointer example)
+RemoveNodeFromList(2-pointer example)
+ReverseLinkedList(*** remember: 3-pointers, switch,shift,shift,shift till front pointer is null, one last switch @ the end, return middle)
+RemoveElementsFromLL
+InsrtIntoCycliLL
+CopyLLwithRandomPointer(shows how to use a hashmap when cloning lists)
+RotateLL
+
+Double LL:
+FlattenDoubleLL
+
+4. ArrayLists
+______________________
+5. 2-D Arrays
+______________________
+6. Multi-D Arrays
+______________________
+7. Heaps
+______________________
+8. Queues
+______________________
+9. Stacks
+______________________
+10. Sorts:
+______________________
+11. Searching Algorithms
+______________________
+Labrynth - find the path algorithm given either an Array of Strings or a char[][] : BattleshipBoard, Solution3
+Search - search a char[][] grid for the total # of battleships : BattleshipBoard, Solution
+
+12. Simple(no data types)
+_______________________
+Reverse an Integer - ReverseInteger, Solution2
+
+______________________
+13. recursion
+
+____________________________________________________________________________________________________________________________________________________
+Classes that you can use for testing:
+_____________________________________
+1. Graphs
+2. Trees
+    N-ary Node = N-aryOrderTraversal, Node AND N-ary Tree creation = N-aryOrderTraversal Main class
+    BST Node = TrimBST, TreeNode AND BST creation = TrimBST Main class
+3. LinkedLists
+4. ArrayLists
+5. 2-D Arrays
+6.Multi-D Arrays
+7. Heaps
+8. Queues
+9. Stacks
+10. Sorts
+11. Searching Algorithms
+12. Simple(no data types)
+
+
+Hards
+____________________________________
+LCC315(problem 4, TODO - comboCount method exceeds time, finish)

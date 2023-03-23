@@ -12,17 +12,7 @@ import java.util.Queue;
  * 2.) Solution 2 works - I had to add line 25 on Solution 2 - if (item!=null) {
  * then it submitted, and beat 84.75% of Solutions
  */
-class Node {
-    public int val;
-    public List<Node> children;
 
-    public Node() {}
-
-    public Node(int _val,List<Node> _children) {
-        val = _val;
-        children = _children;
-    }
-};
 
 public class Solution {
 	public List<List<Integer>> levelOrder(Node root) {

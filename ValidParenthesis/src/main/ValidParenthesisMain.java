@@ -14,8 +14,8 @@ public class ValidParenthesisMain {
 		first submission accepted! no fails!
 	*/
 	public static void main(String[] args) {
-		Solution mySolution = new Solution();
-		String s1 = "";
+		Solution2 mySolution = new Solution2();
+		String s1 = "(([]){})";
 		System.out.println("should be true : " + mySolution.isValid(s1));
 		s1 = "()";
 		System.out.println("should be true : " + mySolution.isValid(s1));

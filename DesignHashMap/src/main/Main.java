@@ -1,6 +1,7 @@
 package main;
 
 import classes.MyHashMap;
+import classes.MyRealHashMap;
 import classes.Solution;
 
 public class Main {
@@ -16,10 +17,10 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		
-		/*MyHashMap obj = new MyHashMap();
-		obj.put(key,value);
-		int param_2 = obj.get(key);
-		obj.remove(key);*/
+		MyRealHashMap obj = new MyRealHashMap();
+		obj.put(2,1);
+		obj.put(2,2);
+		int param_2 = obj.get(2);
 	}
 
 }

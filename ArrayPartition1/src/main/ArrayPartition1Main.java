@@ -1,6 +1,8 @@
 package main;
 
+import classes.BestSolution;
 import classes.Solution;
+import classes.Solution2;
 
 public class ArrayPartition1Main {
 
@@ -13,7 +15,7 @@ public class ArrayPartition1Main {
 	 */
 	public static void main(String[] args) {
 		int[] input = {1,4,3,2};
-		Solution sol = new Solution();
+		BestSolution sol = new BestSolution();
 		System.out.println(sol.arrayPairSum(input));
 	}
 
