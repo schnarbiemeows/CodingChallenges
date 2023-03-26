@@ -1,0 +1,13 @@
+need three pointers
+
+
+	public ListNode reverseList(ListNode head) {
+        if(head==null||head.next==null) return head;
+        return switch(null,head,head.next);
+    }
+    
+    public ListNore switch(ListNode current, ListNode middle, ListNode end) {
+    	middle.next = current;
+    	if(end==null) return middle;
+    	else return switch(middle, end, end.next);
+    }

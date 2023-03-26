@@ -1,0 +1,74 @@
+do this in one pass
+the board will be a valid board, so if we just scan each row from left to right,
+there is no need to check above or below the battle ship
+Instead, let's keep an int[] called verticalBattleships.
+also, keep track of the current ship length as int shipLegth
+for each row, do 2 things:
+1. for each verticalBattleships entries, check the current row at those positions.
+	- if the value at a position is a ., then add 1 to total and remove this number from the set
+2. go through each row from 0 to length-2
+	// if you find an X,. pair: - you either finished finding a ship or a vertical
+	if(row[i]==X&&row[i+1]==.)
+		// if the row is on the left end or we had just found a .,X pair right before it
+		if(i==0||shipLegth==1)
+			// then vertical[i]+=1 and reset ship length
+			verticalBattleships[i]+=1;
+			shipLegth=0;
+		else total+=1
+	// else if you find a .,X pair
+	else if(row[i]==.&&row[i+1]==X)
+		if(i==length-2)						// if we are on the right end
+			verticalBattleships[i+1]+=1;
+		else
+			shipLength=1			
+	// else(else it is a .,. pair or an X,X pair)
+	// if it is an X,X pair AND i=length-2, then it is a battleship that reaches the right side
+	else if(row[i]==X&&row[i+1]==X)
+		if(i==length-2)
+			total+=1
+		else shipLength+=1		// else increment the ship length
+	
+	
+	public int countBattleships(char[][] board) {
+		int totalShips=0; 
+        int ylength = board.length;
+        int xlength = board[0].length;
+        int[] verticalBattleships = new int[board[0].length];
+        for(int y=0;y<ylength;y++) {
+        	int shipLength=0;
+        	if(y>0) {
+	        	for(int x=0;x<xlength;x++) {
+	        		if(verticalBattleships[x]>0&&board[y][x]=='.') {
+	        			totalShips++;
+	        			verticalBattleships[x]=0;
+	        		}
+	        	}
+	        }
+        	for(int i=0;i<xlength;i++) {
+        		if(board[y][i]=='X'&&board[y][i+1]=='.') {
+        			if(i==0||shipLength==1) {
+        				verticalBattleships[i]+=1;
+						shipLength=0;
+        			}
+        			else totalShips++;
+        		}
+        		else if(board[y][i]=='.'&&board[y][i+1]=='X') {
+        			if(i==xlength-2)						
+						verticalBattleships[i+1]+=1;
+					else
+						shipLength=1;
+        		}
+        		else if(board[y][i]=='X'&&board[y][i+1]=='X') {
+					if(i==xlength-2)
+						totalShips++;
+					else shipLength++;
+				}
+        	}
+        }
+        for(int k=0;k<verticalBattleships.length;k++) {
+        	if(verticalBattleships[k]>0) totalShips++;
+        }
+        return totalShips;
+    }	
+    
+Rats, it doesnt say it is a NxN matrix, could be any NxM size, rats
