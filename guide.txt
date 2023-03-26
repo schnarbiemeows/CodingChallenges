@@ -2,7 +2,7 @@ what Structures/Algorithms are being displayed in which projects?
 the structures are:
 Arrays
 Graphs
-Trees
+Trees   --> default TreeNode class is included in the templates
 LinkedLists
 ArrayLists
 2-D Arrays
@@ -60,6 +60,7 @@ ______________________
 ______________________
     1. Binary Trees
 FindNodeInClone
+RangeSumOfBST
 
     2. N-ary trees(more than 2 children)
     Get the values for each level of a tree structure : N-aryOrderTraversal, Solution2
